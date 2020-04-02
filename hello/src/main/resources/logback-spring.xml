@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/base.xml" />
+    <appender name="LOG_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <Prudent>true</Prudent>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>log/sun-service.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+            <totalSizeCap>1GB</totalSizeCap>
+
+        </rollingPolicy>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern> %d{yyyy-MM-dd HH:mm:ss} -%msg%n</Pattern>
+        </layout>
+        <encoder>
+            <pattern>[%X{applicationName}]--[%X{requestId}]--%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level--[%15thread{15}] %-40logger{40} : %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="org" level="ERROR"/>
+    <logger name="com.mysql" level="WARN"/>
+    <logger name="sun" level="ERROR"/>
+    <logger name="com.chengxu" level="INFO"/>
+    <root level="INFO">
+        <appender-ref ref="LOG_FILE" />
+        <!--<appender-ref ref="FILE" />-->
+    </root>
+</configuration>

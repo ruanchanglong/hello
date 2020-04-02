@@ -1,0 +1,47 @@
+server:
+  port: 8090
+  servlet:
+    session:
+      timeout: 10S
+    context-path: /sun
+  tomcat:
+    accept-count: 100
+    accesslog:
+      enabled: true
+    max-connections: 10000
+    max-threads: 500
+
+spring:
+  profiles:
+    #    active: dev
+    active: prod
+  datasource:
+    url: jdbc:mysql://117.73.10.145:3306/welcome_sun?useUnicode=true&characterEncoding=UTF8&allowMultiQueries=true&autoReconnect=true&zeroDateTimeBehavior=convertToNull&useSSL=true
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    hikari:
+      connection-test-query: SELECT 1
+      connectionInitSql: SELECT 1
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      maximum-pool-size: 20
+      minimum-idle: 5
+      validation-timeout: 5000
+  redis:
+    host: 117.73.10.145
+    port: 6379
+    password: Xg6=M-n1
+    jedis:
+      pool:
+        max-active: 50
+        max-idle: 500
+    lettuce:
+      shutdown-timeout: 0
+  jackson:
+    date-format: yyyy-MM-dd'T'HH:mm:ss'Z'
+    time-zone: GMT
+mybatis:
+  type-aliases-package: com.chengxu
+  mapperLocations: classpath:mapper/*.xml
+
