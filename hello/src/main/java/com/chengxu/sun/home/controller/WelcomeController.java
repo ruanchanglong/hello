@@ -7,8 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Optional;
 
 /**
  * @ClassName WelcomeController
@@ -32,6 +31,27 @@ public class WelcomeController {
 	public ResponseBean welcome(@RequestBody User user){
 		userService.newUser(user);
 		return new ResponseBean(null);
+	}
+
+	@GetMapping("/go")
+	public ResponseBean go(){
+
+		return new ResponseBean("gogogog");
+	}
+
+	@GetMapping("/mq")
+	public ResponseBean mq(){
+		userService.sendMq();
+		return new ResponseBean<>(null);
+	}
+	@GetMapping("/executor")
+	public ResponseBean executor() throws InterruptedException {
+		userService.executor();
+		return new ResponseBean<>(null);
+	}
+
+	public static void main(String[] args) {
+
 	}
 
 }

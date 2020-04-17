@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "spring.rabbitmq.one.addresses",
+      "type": "java.lang.String",
+      "description": "Description for spring.rabbitmq.one.addresses."
+  }
+] }

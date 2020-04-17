@@ -18,6 +18,7 @@
     </appender>
 
     <logger name="org" level="ERROR"/>
+    <logger name="org" level="INFO"/>
     <logger name="com.mysql" level="WARN"/>
     <logger name="sun" level="ERROR"/>
     <logger name="com.chengxu" level="INFO"/>
