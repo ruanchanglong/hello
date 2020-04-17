@@ -16,6 +16,6 @@ public class ThredTest {
 
 	@Async
 	public void test(){
-		System.out.println("执行了"+Thread.currentThread().getName());
+		System.out.println("执行 了"+Thread.currentThread().getName());
 	}
 }
